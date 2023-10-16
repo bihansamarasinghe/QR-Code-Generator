@@ -1,14 +1,20 @@
 import qrcode
 
-qr = qrcode.QRCode(version=1,
-                   error_correction=qrcode.constants.ERROR_CORRECT_L,
-                   box_size=50,
-                   border=1)
+# Create a QRCode instance
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=50,
+    border=1
+)
 
-qr.add_data("https://github.com/bihansamarasinghe")
-
+# Add data to the QR code
+data = "https://github.com/bihansamarasinghe"
+qr.add_data(data)
 qr.make(fit=True)
 
-img = qr.make_image()
+# Generate the QR code image
+img = qr.make_image(fill='black', back_color='white')
 
-img.save("mygithubprofile.jpeg")
+# Save the image
+img.save("mygithubprofile.png")
